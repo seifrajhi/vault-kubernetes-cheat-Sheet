@@ -39,13 +39,10 @@ This guide will walk you through the process of setting up HashiCorp Vault to ma
     VAULT_ROOT_KEY=$(cat keys.json | jq -r ".root_token")
     echo $VAULT_ROOT_KEY
 
-    kubectl exec vault-0 -- sh
-    
-    vault operator unseal $VAULT_UNSEAL_KEY
+    kubectl exec vault-0 -- vault operator unseal $VAULT_UNSEAL_KEY
   
-    vault login $VAULT_ROOT_KEY
-    
-    exit
+    kubectl exec vault-0 -- vault login $VAULT_ROOT_KEY
+  
     
     kubectl get pods
 
