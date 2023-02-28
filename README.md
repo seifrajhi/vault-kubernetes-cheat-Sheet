@@ -105,7 +105,7 @@ This guide will walk you through the process of setting up HashiCorp Vault to ma
 12. Create a Kubernetes role for Vault:
 
     ```bash
-    vault write auth/kubernetes/role/myapp \
+    vault write auth/kubernetes/role/vault-aws \
       bound_service_account_names=vault-auth \
       bound_service_account_namespaces=default \
       policies=myapp-policy \
